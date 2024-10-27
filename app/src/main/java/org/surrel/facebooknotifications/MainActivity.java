@@ -140,7 +140,7 @@ public class MainActivity extends Activity {
         });
         WebSettings webSettings = webview.getSettings();
         webSettings.setBlockNetworkImage(false);
-        webSettings.setUserAgentString(getString(R.string.app_name));
+        webSettings.setUserAgentString(getString(R.string.user_agent));
         webview.loadUrl(targetURL);
         setContentView(webview);
         _dMsg("Debug build, timestamp " + BuildConfig.TIMESTAMP);

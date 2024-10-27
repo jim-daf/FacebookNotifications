@@ -109,7 +109,7 @@ public class UpdateService extends Service {
 
         WebSettings webSettings = webview.getSettings();
         webSettings.setBlockNetworkImage(true);
-        webSettings.setUserAgentString(getString(R.string.app_name));
+        webSettings.setUserAgentString(getString(R.string.user_agent));
         webview.loadUrl(URL_BOOKMARKS);
 
         int LAYOUT_FLAG;
