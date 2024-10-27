@@ -84,6 +84,8 @@ public class UpdateService extends Service {
     public void onCreate() {
         super.onCreate();
 
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
         webview = new WebView(this);
         webview.setVisibility(View.GONE);
         webview.setLayoutParams(new ViewGroup.LayoutParams(0, 0));
@@ -109,7 +111,7 @@ public class UpdateService extends Service {
 
         WebSettings webSettings = webview.getSettings();
         webSettings.setBlockNetworkImage(true);
-        webSettings.setUserAgentString(getString(R.string.user_agent));
+        webSettings.setUserAgentString(sharedPreferences.getString("user_agent", "Mozilla/5.0 (Linux; Android 7.0; Pixel C Build/NRD91D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.124 Safari/537.36 [FB_IAB/FB4A;FBAV/98.0.0.18.70;]"));
         webview.loadUrl(URL_BOOKMARKS);
 
         int LAYOUT_FLAG;
@@ -143,7 +145,6 @@ public class UpdateService extends Service {
             windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
             windowManager.addView(webview, params);
         }
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)

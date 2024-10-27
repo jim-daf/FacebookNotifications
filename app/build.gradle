@@ -3,10 +3,10 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 34
     defaultConfig {
-        applicationId "org.surrel.facebooknotifications"
+        applicationId "org.surrel.facebooknotifications.useragent"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 14
+        versionCode 15
         versionName '1.10.1'
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
     }
